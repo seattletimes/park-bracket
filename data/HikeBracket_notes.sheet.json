@@ -1,0 +1,6 @@
+[
+  {
+    "title": "Although config is in the script, we'll need some config in the sheet as well for each round, so the build process can use it",
+    "getactivespreadsheetisbrokeninwebscriptsproducerwillneedtoinsertthesheetid": "Although config is in the script, we'll need some config in the sheet as well for each round, so the build process can use it"
+  }
+]

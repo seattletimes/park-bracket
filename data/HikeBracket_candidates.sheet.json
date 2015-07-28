@@ -1,0 +1,34 @@
+{
+  "thomas": {
+    "title": "News Dev",
+    "name": "Thomas Wilburn"
+  },
+  "audrey": {
+    "title": "News Dev",
+    "name": "Audrey Carlsen"
+  },
+  "paige": {
+    "title": "Producer",
+    "name": "Paige Collins"
+  },
+  "gina": {
+    "title": "Producer",
+    "name": "Gina Cole"
+  },
+  "evan": {
+    "title": "Producer",
+    "name": "Evan Bush"
+  },
+  "ryan": {
+    "title": "AME",
+    "name": "Ryan Blethen"
+  },
+  "whitney": {
+    "title": "AME",
+    "name": "Whitney Stensrud"
+  },
+  "garland": {
+    "title": "Designer",
+    "name": "Garland Potts"
+  }
+}

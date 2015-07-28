@@ -1,0 +1,42 @@
+[
+  {
+    "id": "thomas",
+    "title": "thomas",
+    "votes": "12"
+  },
+  {
+    "id": "audrey",
+    "title": "audrey",
+    "votes": "10"
+  },
+  {
+    "id": "paige",
+    "title": "paige",
+    "votes": "14"
+  },
+  {
+    "id": "gina",
+    "title": "gina",
+    "votes": "13"
+  },
+  {
+    "id": "evan",
+    "title": "evan",
+    "votes": "1"
+  },
+  {
+    "id": "ryan",
+    "title": "ryan",
+    "votes": "2"
+  },
+  {
+    "id": "whitney",
+    "title": "whitney",
+    "votes": "20"
+  },
+  {
+    "id": "garland",
+    "title": "garland",
+    "votes": "21"
+  }
+]
