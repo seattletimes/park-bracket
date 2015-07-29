@@ -1,7 +1,9 @@
-<%= data.name %> - <%= data.title %>
+<%= data.candidate.details.name %> - <%= data.candidate.details.title %>
 <div class="details">
   <p class="chatter">
     this space intentionally left blank. this space intentionally left blank. 
   </p>
-  <a class="vote button" href="javascript:;" data-vote="<%= id %>">Vote for <%= data.name %></a>
+  <% if (data.round.current) { %>
+  <a class="vote button" href="javascript:;" data-vote="<%= data.candidate.id %>">Vote for <%= data.candidate.details.name %></a>
+  <% } %>
 </div>

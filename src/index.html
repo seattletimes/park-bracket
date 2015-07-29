@@ -18,7 +18,7 @@
         <div class="matchup">
           <% ["top", "bottom"].forEach(function(side, i) { %>
             <div class="<%= side %> card <%= match.options[i].id == match.winner ? "winner" : "" %>">
-              <%= t.include(round.id == grunt.data.bracket.current ? "_card.html" : "_expiredCard.html", match.options[i]) %>
+              <%= t.include("_card.html", { data: { round: round, match: match, candidate: match.options[i] } }) %>
             </div>
           <% }) %>
         </div>

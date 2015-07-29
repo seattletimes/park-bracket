@@ -31,7 +31,7 @@ module.exports = function(grunt) {
           winner: null
         };
         matchup.options.forEach(function(option) {
-          option.data = candidates[option.id];
+          option.details = candidates[option.id];
         });
         if (isPast) {
           matchup.winner = a.votes > b.votes ? a.id : b.id
@@ -71,8 +71,9 @@ module.exports = function(grunt) {
       var data = processRound(sheet, true);
       data.title = order.title;
       data.id = order.sheet;
+      data.current = order.sheet == roundID;
       bracket.rounds.push(data);
-      if (order.sheet == roundID) break;
+      if (data.current) break;
     }
 
     grunt.data.bracket = bracket;
