@@ -32,13 +32,16 @@ Database.prototype = {
     });
   },
   transaction_: function(stores, write) {
-   return this.db_.transaction(stores, write ? "readwrite" : undefined);
+    if (write) {
+      return this.db_.transaction(stores, "readwrite");
+    }
+    return this.db_.transaction(stores);
   },
-  put: function(store, value, key) {
+  put: function(store, value) {
     var self = this;
     return new Promise(function(ok, fail) {
       var request = self.transaction_(store, true);
-      request.objectStore(store).put(value, key);
+      request.objectStore(store).put(value);
       request.oncomplete = ok
       request.onerror = fail
     });
@@ -50,6 +53,7 @@ Database.prototype = {
    }
    var self = this;
    return new Promise(function(ok, fail) {
+      console.log(table, index, key);
       var transaction = self.transaction_(table);
       var store = transaction.objectStore(table);
       var request;

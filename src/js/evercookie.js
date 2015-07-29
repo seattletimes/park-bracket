@@ -64,12 +64,11 @@ var facade = {
   access: function(key, value) {
     return new Promise(function(ok, fail) {
       var promises = methods.map(m => m(key, value));
-      // console.log(promises);
       Promise.all(promises).then(function(results) {
         for (var i = 0; i < results.length; i++) {
           if (results[i]) return ok(results[i]);
         }
-      });
+      }, function(err) { console.error("IDB crashed", err) });
     });
   },
   spawn: function() {
