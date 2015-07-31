@@ -88,16 +88,21 @@ var facade = {
   access: function(key, value) {
     return new Promise(function(ok, fail) {
       var promises = methods.map(m => m(key, value));
-      Promise.all(promises).then(function(results) {
-        for (var i = 0; i < results.length; i++) {
-          if (results[i]) return ok(results[i]);
-        }
-        ok(null);
-      }, function(err) { console.error("IDB crashed", err) });
+      //don't use Promise.all(), because IDB may crash
+      var i = 0;
+      var skip = function() {
+        if (!promises[++i]) return ok(null);
+        promises[i].then(check, skip);
+      };
+      var check = function(value) {
+        console.log("check", i);
+        if (value) return ok(value);
+        skip();
+      };
+      promises[0].then(check, skip);
     });
   },
   wipe: function(key) {
-    console.log(key);
     methods.forEach(m => m.clear(key));
   }
 };
