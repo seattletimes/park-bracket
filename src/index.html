@@ -13,23 +13,19 @@
 
     <% grunt.data.bracket.rounds.forEach(function(round, i) { %>
       <section class="round" id="<%= round.id %>">
-        <h1><%= round.title %></h1>
-        <% round.matchups.forEach(function(match) { %>
-        <div class="matchup">
-          <% ["top", "bottom"].forEach(function(side, i) { var option = match.options[i]; %>
-            <div class="<%= side %> card <%= option.id == match.winner ? "winner" : "" %>" data-candidate="<%= option.id %>">
-              <%= t.include("_card.html", { data: { round: round, match: match, candidate: option } }) %>
-            </div>
-          <% }) %>
-        </div>
-        <% }) %>
+      <%= t.include("_round.html", { data: { round: round } }) %>
       </section>
     <% }) %>
 
     </main>
 
     <script>
-var bracket = <%= JSON.stringify(grunt.data.bracket) %>;
+window.bracket = <%= JSON.stringify(grunt.data.bracket) %>;
+window.config = {
+  sheet: "<%= json.project.sheets[0] %>",
+  endpoint: "<%= json.project.endpoint %>",
+  page: "<%= json.package.name %>"
+};
     </script>
 
     <script src="app.js"></script>

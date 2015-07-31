@@ -27,6 +27,8 @@ var cookie = function(key, value) {
   });
 };
 
+cookie.clear = (key) => `${key}=null;path=/;expires=Tue, 1 Jan 1970 00:00:00 GMT`;
+
 var Database = require("./idb");
 var db = new Database("evercookie", 1, function() {
   db.createStore("cookies", {
@@ -39,9 +41,10 @@ var idb = function(key, value) {
   if (value) {
     return db.ready.then(() => db.put("cookies", { key: key, value: value}));
   } else {
-    return db.ready.then(() => db.get("cookies", key)).then(result => result.value);
+    return db.ready.then(() => db.get("cookies", key)).then(result => result ? result.value : null);
   }
 };
+idb.clear = () => db.ready.then(() => db.clear("cookies"));
 
 var localS = function(key, value) {
   return new Promise(function(ok, fail) {
@@ -57,6 +60,7 @@ var localS = function(key, value) {
     }
   });
 };
+localS.clear = window.localStorage.clear.bind(window.localStorage);
 
 var methods = [cookie, idb, localS];
 
@@ -68,11 +72,12 @@ var facade = {
         for (var i = 0; i < results.length; i++) {
           if (results[i]) return ok(results[i]);
         }
+        ok(null);
       }, function(err) { console.error("IDB crashed", err) });
     });
   },
-  spawn: function() {
-
+  wipe: function(key) {
+    methods.forEach(m => m.clear(key));
   }
 };
 

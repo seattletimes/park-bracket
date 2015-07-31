@@ -41,6 +41,7 @@ module.exports = function(grunt) {
         }
         round.matchups.push(matchup);
       }
+      round.current = !isPast;
       return round;
     };
 
@@ -71,10 +72,10 @@ module.exports = function(grunt) {
     for (var i = 0; i < orderSheet.length; i++) {
       var order = orderSheet[i];
       var sheet = getSheet(order.sheet);
-      var data = processRound(sheet, true);
+      var isCurrent = order.sheet == roundID;
+      var data = processRound(sheet, !isCurrent);
       data.title = order.title;
       data.id = order.sheet;
-      data.current = order.sheet == roundID;
       bracket.rounds.push(data);
       if (data.current) break;
     }

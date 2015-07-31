@@ -53,7 +53,6 @@ Database.prototype = {
    }
    var self = this;
    return new Promise(function(ok, fail) {
-      console.log(table, index, key);
       var transaction = self.transaction_(table);
       var store = transaction.objectStore(table);
       var request;
@@ -87,6 +86,9 @@ Database.prototype = {
         }
       };
    });
+  },
+  clear: function(table) {
+    this.transaction_(table, true).objectStore(table).clear();
   }
 };
 

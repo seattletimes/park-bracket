@@ -5,26 +5,39 @@ var track = require("./lib/tracking");
 require("component-responsive-frame/child");
 
 var $ = require("jquery");
-var endpoint = "https://script.google.com/macros/s/AKfycbxc9-lpS4InceOver_BHPjISvt6wM6hTJpArG1wGC0CQWE9lTs/exec";
+
+window.bracket.currentRound = window.bracket.rounds.filter(r => r.id == window.bracket.current).pop();
+
+var dot = require("./lib/dot");
+var roundTemplate = dot.compile(require("../_round.html"));
+
+var renderRound = function(round) {
+  var roundElement = $(`#${round.id}`);
+  roundElement.html(roundTemplate({round}));
+};
+
+var memory = require("./memory");
+memory.configure(window.config.page, window.bracket.current);
+memory.remember(votes => {
+  window.bracket.currentRound.matchups.forEach(function(match) {
+    if (match.options.some(o => o.id in votes)) {
+      match.voted = match.options[0].id in votes ? match.options[0].id : match.options[1].id;
+    }
+  });
+  renderRound(window.bracket.currentRound);
+});
 
 var Tabletop = require("tabletop");
-
-var storage = require("./evercookie");
-
-var cardHTML = require("../_card.html");
-var dot = require("./lib/dot");
-var cardTemplate = dot.compile(cardHTML);
-
 Tabletop.init({
-  key: "1S5hBvOBl_tDNTlr3wE3sFxz2jkg2RCkRR1ZjYTdnCbk",
+  key: window.config.sheet,
   simpleSheet: true,
   wanted: [window.bracket.current],
   callback: function(rows) {
-    var round = window.bracket.rounds.filter(r => r.id == window.bracket.current).pop();
+    var round = window.bracket.currentRound;
     if (!round) return;
     var voting = {};
     rows.forEach(function(row) {
-      voting[row.id] = row.votes;
+      voting[row.id] = row.votes * 1;
     });
     round.matchups.forEach(function(match) {
       //first pass, recount the votes
@@ -33,12 +46,9 @@ Tabletop.init({
           option.votes = voting[option.id];
         }
       });
-      match.total = options[0].votes + options[1].votes;
-      //second pass, re-render the elements
-      match.options.forEach(function(option) {
-        var html = cardTemplate({ round, match, candidate: option})
-      });
+      match.total = match.options[0].votes + match.options[1].votes;
     });
+    renderRound(round);
   }
 });
 
@@ -50,10 +60,13 @@ $(".bracket").on("click", ".vote", function(e) {
 
   var vote = this.getAttribute("data-vote");
   var request = $.ajax({
-    url: endpoint,
+    url: window.config.endpoint,
     data: { vote },
     dataType: "jsonp"
   });
   request.done(e => console.log(e));
+
+  //mark it in the evercookie
+  memory.flag(vote);
 
 });
