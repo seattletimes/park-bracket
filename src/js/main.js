@@ -78,9 +78,13 @@ $(".bracket").on("click", ".vote", function(e) {
   request.done(function(data) {
     console.log(data);
     renderRound(window.bracket.currentRound);
+
+    //mark it in the evercookie
+    memory.flag(vote);
+  });
+  request.fail(function() {
+    $card.removeClass("voting");
   });
 
-  //mark it in the evercookie
-  memory.flag(vote);
 
 });

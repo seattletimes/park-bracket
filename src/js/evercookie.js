@@ -78,16 +78,28 @@ var methods = [tab, cookie, idb, localS];
 
 var facade = {
   access: function(key, value) {
+    if (value) {
+      methods.forEach(m => m(key, value));
+      return Promise.resolve();
+    }
     return new Promise(function(ok, fail) {
-      var promises = methods.map(m => m(key, value));
+      var promises = methods.map(m => m(key));
       //don't use Promise.all(), because IDB may crash
       var i = 0;
+      var found = function(value, at) {
+        //persist elsewhere once you find it in one place
+        methods.forEach(function(m, i) {
+          if (i != at) m(key, value);
+        });
+        //return back out through the main promise
+        ok(value);
+      };
       var skip = function() {
         if (!promises[++i]) return ok(null);
         promises[i].then(check, skip);
       };
       var check = function(value) {
-        if (value) return ok(value);
+        if (value) return found(value, i);
         skip();
       };
       promises[0].then(check, skip);
