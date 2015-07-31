@@ -1,5 +1,25 @@
 var Promise = require("es6-promise").Promise;
 
+/*
+window.name will prevent clearing the data as long as the tab remains open, even in Chrome.
+*/
+var tabStorage = window.name;
+try {
+  tabStorage = JSON.parse(tabStorage);
+} catch (_) {
+  tabStorage = {};
+}
+var tab = function(key, value) {
+  if (value) {
+    tabStorage[key] = value;
+    window.name = JSON.stringify(tabStorage);
+    return Promise.resolve();
+  } else {
+    return Promise.resolve(tabStorage[key]);
+  }
+};
+tab.clear = () => window.name = "";
+
 var parseCookie = function() {
   var result = {};
   var pairs = document.cookie.split(";");
@@ -62,7 +82,7 @@ var localS = function(key, value) {
 };
 localS.clear = window.localStorage.clear.bind(window.localStorage);
 
-var methods = [cookie, idb, localS];
+var methods = [tab, cookie, idb, localS];
 
 var facade = {
   access: function(key, value) {
