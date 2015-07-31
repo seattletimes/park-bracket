@@ -14,7 +14,7 @@ can make this the default task, and it'll be preserved across `watch` runs.
 
 module.exports = function(grunt) {
 
-  var getSheet = function(id) { return grunt.data.json["HikeBracket_" + id] };
+  var getSheet = function(id) { return grunt.data.json["ParksBracket_" + id] };
 
   grunt.registerTask("matchups", function() {
 
@@ -26,8 +26,11 @@ module.exports = function(grunt) {
       for (var i = 0; i < sheet.length; i += 2) {
         var a = sheet[i];
         var b = sheet[i + 1];
+        a.votes *= 1;
+        b.votes *= 1;
         var matchup = {
           options: [a, b],
+          total: a.votes + b.votes,
           winner: null
         };
         matchup.options.forEach(function(option) {

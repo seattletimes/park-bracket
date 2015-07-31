@@ -12,13 +12,13 @@
     <main class="bracket">
 
     <% grunt.data.bracket.rounds.forEach(function(round, i) { %>
-      <section class="round" id="<%= round.sheet %>">
+      <section class="round" id="<%= round.id %>">
         <h1><%= round.title %></h1>
         <% round.matchups.forEach(function(match) { %>
         <div class="matchup">
-          <% ["top", "bottom"].forEach(function(side, i) { %>
-            <div class="<%= side %> card <%= match.options[i].id == match.winner ? "winner" : "" %>">
-              <%= t.include("_card.html", { data: { round: round, match: match, candidate: match.options[i] } }) %>
+          <% ["top", "bottom"].forEach(function(side, i) { var option = match.options[i]; %>
+            <div class="<%= side %> card <%= option.id == match.winner ? "winner" : "" %>" data-candidate="<%= option.id %>">
+              <%= t.include("_card.html", { data: { round: round, match: match, candidate: option } }) %>
             </div>
           <% }) %>
         </div>
@@ -27,6 +27,10 @@
     <% }) %>
 
     </main>
+
+    <script>
+var bracket = <%= JSON.stringify(grunt.data.bracket) %>;
+    </script>
 
     <script src="app.js"></script>
     <% if (json.project.production) { %>

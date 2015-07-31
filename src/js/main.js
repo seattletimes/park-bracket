@@ -11,11 +11,35 @@ var Tabletop = require("tabletop");
 
 var storage = require("./evercookie");
 
+var cardHTML = require("../_card.html");
+var dot = require("./lib/dot");
+var cardTemplate = dot.compile(cardHTML);
+
 Tabletop.init({
   key: "1S5hBvOBl_tDNTlr3wE3sFxz2jkg2RCkRR1ZjYTdnCbk",
   simpleSheet: true,
-  wanted: ["Round1"],
-  callback: console.log.bind(console)
+  wanted: [window.bracket.current],
+  callback: function(rows) {
+    var round = window.bracket.rounds.filter(r => r.id == window.bracket.current).pop();
+    if (!round) return;
+    var voting = {};
+    rows.forEach(function(row) {
+      voting[row.id] = row.votes;
+    });
+    round.matchups.forEach(function(match) {
+      //first pass, recount the votes
+      match.options.forEach(function(option) {
+        if (voting[option.id]) {
+          option.votes = voting[option.id];
+        }
+      });
+      match.total = options[0].votes + options[1].votes;
+      //second pass, re-render the elements
+      match.options.forEach(function(option) {
+        var html = cardTemplate({ round, match, candidate: option})
+      });
+    });
+  }
 });
 
 $(".bracket").on("click", ".matchup", function(e) {
