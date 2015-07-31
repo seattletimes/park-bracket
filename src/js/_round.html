@@ -1,15 +1,28 @@
 <h1><%= data.round.title %></h1>
 <% data.round.matchups.forEach(function(match, i) { %>
-<div class="matchup" data-index="<%= i %>">
+<div class="matchup <%= match.voted ? "voted" : "" %>" data-index="<%= i %>">
   <% ["top", "bottom"].forEach(function(side, i) { %>
   <% var candidate = match.options[i]; %>
-    <div class="<%= side %> card <%= candidate.id == match.winner ? "winner" : "" %>" data-candidate="<%= candidate.id %>">
+  <% var won = candidate.id == match.winner; %>
+  <% var chosen = candidate.id == match.voted; %>
+    <div 
+      class="<%= side %> card <%= won ? "winner" : "" %> <%= chosen ? "chosen" : "" %>" 
+      data-candidate="<%= candidate.id %>"
+    >
+      <div class="icons">
+        <% if (match.winner == candidate.id) { %>
+        <i class="fa fa-star win-marker"></i>
+        <% } else if (match.voted == candidate.id) { %>
+        <i class="fa fa-check vote-marker"></i>
+        <% } %>
+        <i class="fa fa-spinner fa-spin voting-marker"></i>
+      </div>
       <%= candidate.details.name %> - <%= candidate.details.title %>
       <div class="details">
         <p class="chatter">
           this space intentionally left blank. this space intentionally left blank. 
         </p>
-        <div class="voting">
+        <div class="result">
           Chosen by <%= (candidate.votes / match.total * 100).toFixed(1) %>% of voters
         </div>
         <% if (data.round.current && !match.voted) { %>

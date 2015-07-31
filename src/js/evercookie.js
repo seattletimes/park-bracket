@@ -18,7 +18,7 @@ var cookie = function(key, value) {
   return new Promise(function(ok, fail) {
     if (value) {
       value = encodeURI(JSON.stringify(value));
-      document.cookie = `${key}=${value};path=/;expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+      document.cookie = `${key}=${value}; path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
       ok();
     } else {
       var cookies = parseCookie();
@@ -27,7 +27,7 @@ var cookie = function(key, value) {
   });
 };
 
-cookie.clear = (key) => `${key}=null;path=/;expires=Tue, 1 Jan 1970 00:00:00 GMT`;
+cookie.clear = (key) => document.cookie = `${key}=;path=/;expires=Thu, 1 Jan 1970 00:00:00 GMT`;
 
 var Database = require("./idb");
 var db = new Database("evercookie", 1, function() {
@@ -77,6 +77,7 @@ var facade = {
     });
   },
   wipe: function(key) {
+    console.log(key);
     methods.forEach(m => m.clear(key));
   }
 };

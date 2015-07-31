@@ -9,7 +9,7 @@ var $ = require("jquery");
 window.bracket.currentRound = window.bracket.rounds.filter(r => r.id == window.bracket.current).pop();
 
 var dot = require("./lib/dot");
-var roundTemplate = dot.compile(require("../_round.html"));
+var roundTemplate = dot.compile(require("./_round.html"));
 
 var renderRound = function(round) {
   var roundElement = $(`#${round.id}`);
@@ -58,13 +58,27 @@ $(".bracket").on("click", ".matchup", function(e) {
 
 $(".bracket").on("click", ".vote", function(e) {
 
+  var $this = $(this);
+  var $card = $this.closest(".card");
+  $card.addClass("voting");
+
   var vote = this.getAttribute("data-vote");
+  
+  //mark this vote in our memory structure
+  var matchID = $this.closest(".matchup").attr("data-index");
+  var round = window.bracket.currentRound;
+  var match = round.matchups[matchID];
+  match.voted = vote;
+
   var request = $.ajax({
     url: window.config.endpoint,
     data: { vote },
     dataType: "jsonp"
   });
-  request.done(e => console.log(e));
+  request.done(function(data) {
+    console.log(data);
+    renderRound(window.bracket.currentRound);
+  });
 
   //mark it in the evercookie
   memory.flag(vote);

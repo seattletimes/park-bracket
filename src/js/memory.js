@@ -19,7 +19,6 @@ var get = function(c) {
 };
 
 var set = function(value, c) {
-  console.log("setting", value);
   storage.access(config.page + config.key, value).then(c || noop);
 };
 
@@ -32,7 +31,6 @@ module.exports = {
     get(data => {
       if (!data) data = {};
       data[item] = true;
-      console.log(data);
       set(data);
     });
   },

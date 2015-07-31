@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <%= t.include("partials/_adHead.html") %>
   </head>
   <body>
@@ -13,7 +14,7 @@
 
     <% grunt.data.bracket.rounds.forEach(function(round, i) { %>
       <section class="round" id="<%= round.id %>">
-      <%= t.include("_round.html", { data: { round: round } }) %>
+      <%= t.include("js/_round.html", { data: { round: round } }) %>
       </section>
     <% }) %>
 
