@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Round 1",
+    "sheet": "round1",
+    "active": ""
+  },
+  {
+    "title": "Round 2",
+    "sheet": "round2",
+    "active": "x"
+  },
+  {
+    "title": "Quarterfinals",
+    "sheet": "round3",
+    "active": ""
+  },
+  {
+    "title": "Semifinals",
+    "sheet": "round4",
+    "active": ""
+  },
+  {
+    "title": "Finals",
+    "sheet": "final",
+    "active": ""
+  }
+]
