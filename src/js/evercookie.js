@@ -53,12 +53,12 @@ var db = new Database("evercookie", 1, function() {
 
 var idb = function(key, value) {
   if (value) {
-    return db.ready.then(_ => db.put("cookies", { key: key, value: value}));
+    return db.put("cookies", { key: key, value: value});
   } else {
-    return db.ready.then(_ => db.get("cookies", key)).then(result => result ? result.value : null);
+    return db.get("cookies", key).then(result => result ? result.value : null);
   }
 };
-idb.clear = () => db.ready.then(() => db.clear("cookies"));
+idb.clear = () => db.clear("cookies");
 
 var localS = function(key, value) {
   if (value) {

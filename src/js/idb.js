@@ -2,7 +2,7 @@ var Promise = require("es6-promise").Promise;
 
 var Database = function(name, version, upgrade) {
   var self = this;
-  this.ready = new Promise(function(ok, fail) {
+  this.ready_ = new Promise(function(ok, fail) {
    var req = window.indexedDB.open(name, version);
    req.onupgradeneeded = function(db) {
      self.db_ = req.result;
@@ -16,7 +16,7 @@ var Database = function(name, version, upgrade) {
   });
 };
 Database.prototype = {
-  ready: null,
+  ready_: null,
   db_: null,
   createStore: function(name, schema) {
     var self = this;
@@ -40,10 +40,12 @@ Database.prototype = {
   put: function(store, value) {
     var self = this;
     return new Promise(function(ok, fail) {
-      var request = self.transaction_(store, true);
-      request.objectStore(store).put(value);
-      request.oncomplete = ok
-      request.onerror = fail
+      self.ready_.then(function() {
+        var request = self.transaction_(store, true);
+        request.objectStore(store).put(value);
+        request.oncomplete = ok
+        request.onerror = fail
+      });
     });
   },
   get: function(table, index, key) {
@@ -53,6 +55,7 @@ Database.prototype = {
    }
    var self = this;
    return new Promise(function(ok, fail) {
+    self.ready_.then(function() {
       var transaction = self.transaction_(table);
       var store = transaction.objectStore(table);
       var request;
@@ -65,11 +68,13 @@ Database.prototype = {
         ok(request.result);
       };
       request.onerror = fail;
+    });
    });
   },
   getAll: function(table, bounds) {
    var self = this;
    return new Promise(function(ok, fail) {
+    self.ready_.then(function() {
       var transaction = self.transaction_(table);
       var store = transaction.objectStore(table);
       var items = {};
@@ -85,6 +90,7 @@ Database.prototype = {
           ok(items);
         }
       };
+    });
    });
   },
   clear: function(table) {

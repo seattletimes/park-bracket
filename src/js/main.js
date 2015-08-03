@@ -28,7 +28,8 @@ memory.remember(votes => {
 });
 
 var Tabletop = require("tabletop");
-Tabletop.init({
+//disable Tabletop updates during testing due to Google API limits
+if (false) Tabletop.init({
   key: window.config.sheet,
   simpleSheet: true,
   wanted: [window.bracket.current],
