@@ -11,7 +11,12 @@
   <body>
 
     <header>
-      <img src="assets/header_gardens.JPG">
+      <!-- <img class="logo" src="assets/seattletimes.svg"> -->
+      <div class="header-images"> 
+        <img src="assets/dogride.JPG">
+        <img src="assets/gardens.JPG">
+        <img src="assets/myrtle.JPG">
+      </div> 
     </header>
 
     <main class="bracket">
@@ -22,6 +27,10 @@
     <% }) %>
 
     </main>
+
+    <footer>
+      <img class="logo" src="assets/seattletimes.svg">
+    </footer>
 
     <script>
 window.bracket = <%= JSON.stringify(grunt.data.bracket) %>;
