@@ -1,42 +1,82 @@
 [
   {
-    "id": "thomas",
-    "title": "thomas",
-    "votes": "12"
+    "id": "discovery",
+    "title": "discovery",
+    "votes": ""
   },
   {
-    "id": "audrey",
-    "title": "audrey",
-    "votes": "10"
+    "id": "matthews",
+    "title": "matthews",
+    "votes": ""
   },
   {
-    "id": "paige",
-    "title": "paige",
-    "votes": "14"
+    "id": "greenlake",
+    "title": "greenlake",
+    "votes": ""
   },
   {
-    "id": "gina",
-    "title": "gina",
-    "votes": "13"
+    "id": "genecoulon",
+    "title": "genecoulon",
+    "votes": ""
   },
   {
-    "id": "evan",
-    "title": "evan",
-    "votes": "1"
+    "id": "arboretum",
+    "title": "arboretum",
+    "votes": ""
   },
   {
-    "id": "ryan",
-    "title": "ryan",
-    "votes": "2"
+    "id": "lutherburbank",
+    "title": "lutherburbank",
+    "votes": ""
   },
   {
-    "id": "whitney",
-    "title": "whitney",
-    "votes": "20"
+    "id": "seward",
+    "title": "seward",
+    "votes": ""
   },
   {
-    "id": "garland",
-    "title": "garland",
-    "votes": "21"
+    "id": "juanita",
+    "title": "juanita",
+    "votes": ""
+  },
+  {
+    "id": "golden",
+    "title": "golden",
+    "votes": ""
+  },
+  {
+    "id": "lakeunion",
+    "title": "lakeunion",
+    "votes": ""
+  },
+  {
+    "id": "alki",
+    "title": "alki",
+    "votes": ""
+  },
+  {
+    "id": "madison",
+    "title": "madison",
+    "votes": ""
+  },
+  {
+    "id": "lincoln",
+    "title": "lincoln",
+    "votes": ""
+  },
+  {
+    "id": "myrtle",
+    "title": "myrtle",
+    "votes": ""
+  },
+  {
+    "id": "magnuson",
+    "title": "magnuson",
+    "votes": ""
+  },
+  {
+    "id": "carkeek",
+    "title": "carkeek",
+    "votes": ""
   }
 ]

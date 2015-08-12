@@ -1,22 +1,12 @@
 [
   {
-    "id": "thomas",
-    "title": "thomas",
-    "votes": "15"
+    "id": "discovery",
+    "title": "discovery",
+    "votes": ""
   },
   {
-    "id": "paige",
-    "title": "paige",
-    "votes": "31"
-  },
-  {
-    "id": "ryan",
-    "title": "ryan",
-    "votes": "3"
-  },
-  {
-    "id": "garland",
-    "title": "garland",
-    "votes": "23"
+    "id": "carkeek",
+    "title": "carkeek",
+    "votes": ""
   }
 ]

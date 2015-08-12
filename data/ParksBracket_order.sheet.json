@@ -1,27 +1,22 @@
 [
   {
     "title": "Round 1",
-    "sheet": "round1",
-    "active": ""
+    "sheet": "round1"
   },
   {
     "title": "Round 2",
-    "sheet": "round2",
-    "active": "x"
+    "sheet": "round2"
   },
   {
     "title": "Quarterfinals",
-    "sheet": "round3",
-    "active": ""
+    "sheet": "round3"
   },
   {
     "title": "Semifinals",
-    "sheet": "round4",
-    "active": ""
+    "sheet": "round4"
   },
   {
     "title": "Finals",
-    "sheet": "final",
-    "active": ""
+    "sheet": "final"
   }
 ]
