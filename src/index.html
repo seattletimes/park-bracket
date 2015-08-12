@@ -10,8 +10,11 @@
   </head>
   <body>
 
-    <main class="bracket">
+    <header>
+      <img src="assets/header_gardens.JPG">
+    </header>
 
+    <main class="bracket">
     <% grunt.data.bracket.rounds.forEach(function(round, i) { %>
       <section class="round" id="<%= round.id %>">
       <%= t.include("js/_round.html", { data: { round: round } }) %>
