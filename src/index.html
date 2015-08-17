@@ -8,16 +8,50 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <%= t.include("partials/_adHead.html") %>
   </head>
-  <body>
+  <body ng-app="brackets">
 
-    <main class="bracket">
+    <main class="bracket" ng-controller="bracket-controller">
 
-    <% grunt.data.bracket.rounds.forEach(function(round, i) { %>
-      <section class="round" id="<%= round.id %>">
-      <%= t.include("js/_round.html", { data: { round: round } }) %>
+    
+      <section class="round" ng-repeat="round in bracket.rounds">
+        <h1>{{round.title}}</h1>
+        <div 
+          ng-repeat="match in round.matchups"
+          ng-class="{ voted: match.voted, expanded: match.expanded }"
+          class="matchup"
+          ng-click="match.expanded = !match.expanded"
+        >
+            <div 
+              ng-repeat="candidate in match.options"
+              ng-class="{
+                won: match.winner == candidate.id,
+                chosen: candidate.id == match.voted
+              }"
+              class="card {{$first ? 'top' : 'bottom'}}"
+            >
+              <div class="icons">
+                <i class="fa fa-star win-marker" ng-if="match.winner == candidate.id"></i>
+                <i class="fa fa-check vote-marker" ng-if="match.voted == candidate.id"></i>
+                <i class="fa fa-spinner fa-spin voting-marker" ng-if="candidate.voting"></i>
+              </div>
+              {{ candidate.details.name }} - {{ candidate.details.title }}
+              <div class="details">
+                <p class="chatter">
+                  this space intentionally left blank. this space intentionally left blank. 
+                </p>
+                <div class="result">
+                  Chosen by {{ candidate.votes / match.total * 100 | number:1 }}% of voters
+                </div>
+                <a
+                  ng-if="round.current && !match.voted"
+                  ng-click="vote(candidate, match)"
+                  class="vote button"
+                >Vote for {{ candidate.details.name }}</a>
+              </div>
+            </div>
+        </div>
       </section>
-    <% }) %>
-
+    
     </main>
 
     <script>

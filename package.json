@@ -7,7 +7,11 @@
     "type": "git",
     "url": "https://github.com/seattletimes/park-bracket.git"
   },
+  "scripts": {
+    "start": "grunt --round=round2"
+  },
   "dependencies": {
+    "angular": "^1.4.4",
     "async": "^1.2.1",
     "aws-sdk": "^2.1.25",
     "babelify": "^6.0.2",
