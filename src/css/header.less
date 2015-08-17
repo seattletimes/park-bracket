@@ -1,7 +1,25 @@
 @import "values";
+@import "flexbox";
+
+
 
 header {
-  img {
-    width: 100%;
+  .display-flex;
+  padding: 15px;  
+  background: black;
+
+   .logo {
+    color: white;
+    justify-content: center;
+  }
+
+  .header-images {
+    .display-flex;
+  flex-direction: row;
+  justify-content: space-between;
+    img {
+      width: 32.7%;
+      height: 32.7%;
+    }
   }
 }

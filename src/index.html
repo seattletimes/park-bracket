@@ -9,9 +9,17 @@
     <%= t.include("partials/_adHead.html") %>
   </head>
   <body ng-app="brackets">
-    
+
+    <nav>
+      <img class="logo" src="assets/seattletimes.svg">
+    </nav>
+
     <header>
-      <img src="assets/header_gardens.JPG">
+      <div class="header-images"> 
+        <img src="assets/dogride.JPG">
+        <img src="assets/gardens.JPG">
+        <img src="assets/myrtle.JPG">
+      </div> 
     </header>
 
     <main class="bracket" ng-controller="bracket-controller">
@@ -57,6 +65,10 @@
       </section>
 
     </main>
+
+    <footer>
+      <img class="logo" src="assets/seattletimes.svg">
+    </footer>
 
     <script>
 window.bracket = <%= JSON.stringify(grunt.data.bracket) %>;
