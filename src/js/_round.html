@@ -9,6 +9,9 @@
       class="<%= side %> card <%= won ? "winner" : "" %> <%= chosen ? "chosen" : "" %>" 
       data-candidate="<%= candidate.id %>"
     >
+    <script>
+    console.log(candidate.details);
+    </script>
       <div class="icons">
         <% if (match.winner == candidate.id) { %>
         <i class="fa fa-star win-marker"></i>
@@ -17,10 +20,15 @@
         <% } %>
         <i class="fa fa-spinner fa-spin voting-marker"></i>
       </div>
-      <%= candidate.details.name %> - <%= candidate.details.title %>
+      <%= candidate.details.name %>
       <div class="details">
+        <img class="teaser" src="assets/<%= candidate.details.image %>.jpg">
         <p class="chatter">
-          this space intentionally left blank. this space intentionally left blank. 
+          <%= candidate.details.description %> 
+        </p>
+        <p class="address">
+          <%= candidate.details.address %> 
+          <a href="<%= candidate.details.url %> ">Website ></a>
         </p>
         <div class="result">
           Chosen by <%= (candidate.votes / match.total * 100).toFixed(1) %>% of voters

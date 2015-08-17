@@ -1,34 +1,130 @@
 {
-  "thomas": {
-    "title": "News Dev",
-    "name": "Thomas Wilburn"
+  "alki": {
+    "name": "Alki Beach Park",
+    "address": "1702 Alki Ave SW, Seattle",
+    "description": "Think summer in Seattle, and you think Alki. The 2.5-mile beach front brings all sorts -- walkers, joggers, rollerbladers, cyclists -- looking to dip their toes in the sand, play some volleyball, and enjoy some rare Seattle rays. The park features picnic tables, a bathouse art studio, and a restroom on the south end of the beach.  ",
+    "url": "http://www.seattle.gov/parks/park_detail.asp?ID=445",
+    "image": "golden_tzr",
+    "credit": ""
   },
-  "audrey": {
-    "title": "News Dev",
-    "name": "Audrey Carlsen"
+  "carkeek": {
+    "name": "Carkeek Park",
+    "address": "950 NW Carkeek Park Rd., Seattle",
+    "description": "",
+    "url": "http://www.seattle.gov/parks/environment/carkeek.htm",
+    "image": "golden_tzr",
+    "credit": ""
   },
-  "paige": {
-    "title": "Producer",
-    "name": "Paige Collins"
+  "discovery": {
+    "name": "Discovery Park",
+    "address": "3801 Discovery Park Blvd, Seattle",
+    "description": "",
+    "url": "http://www.seattle.gov/parks/environment/discovery.htm",
+    "image": "golden_tzr",
+    "credit": ""
   },
-  "gina": {
-    "title": "Producer",
-    "name": "Gina Cole"
+  "genecoulon": {
+    "name": "Gene Coulon Memorial Beach Park",
+    "address": "1201 Lake Washington Blvd. N., Renton",
+    "description": "Renton’s answer to Ballard’s Golden Gardens, Gene Coulon boasts a large sandy beach, several mega picnic shelters, a large swimming area off Lake Washington and enough amenities to entertain everyone all day — including a large playground, volleyball and tennis courts, and if you’re hungry, ice cream and snacks from the food stand. ",
+    "url": "",
+    "image": "golden_tzr",
+    "credit": ""
   },
-  "evan": {
-    "title": "Producer",
-    "name": "Evan Bush"
+  "golden": {
+    "name": "Golden Gardens Park",
+    "address": "8498 Seaview Place N.W., Seattle",
+    "description": "Percussion hobbyists, fire pits, sailboats. That’s your Golden Gardens experience in a nutshell. Tons of blazing fires are alight around the beach. In other corners, families picnic under huge, reservable shelters. If you’re looking for a tranquil day at the beach, that’s not going to happen here, at least not on a weekend. But the sunset will not disappoint.",
+    "url": "http://www.seattle.gov/parks/park_detail.asp?ID=243",
+    "image": "golden_tzr",
+    "credit": ""
   },
-  "ryan": {
-    "title": "AME",
-    "name": "Ryan Blethen"
+  "greenlake": {
+    "name": "Green Lake Park",
+    "address": "7201 E Greenlake Dr N, Seattle",
+    "description": "",
+    "url": "http://www.seattle.gov/parks/park_detail.asp?ID=307",
+    "image": "golden_tzr",
+    "credit": ""
   },
-  "whitney": {
-    "title": "AME",
-    "name": "Whitney Stensrud"
+  "juanita": {
+    "name": "Juanita Bay Park",
+    "address": "2201 Market St, Kirkland, WA 98033",
+    "description": "",
+    "url": "http://parksofkirkland.com/juanita-bay-park/",
+    "image": "golden_tzr",
+    "credit": ""
   },
-  "garland": {
-    "title": "Designer",
-    "name": "Garland Potts"
+  "lakeunion": {
+    "name": "Lake Union Park",
+    "address": "860 Terry Ave N, Seattle",
+    "description": "This 12-acre park is located near the center of downtown and features beach access for swimming, water features for children and views of seaplanes taking off and landing on the lake. Located next to the Museum of History and Industry it’s a great spot to picnic on the grass, launch a canoe or rent a boat from the Center of Wooden Boats and explore the lake. ",
+    "url": "http://www.seattle.gov/parks/park_detail.asp?ID=344",
+    "image": "golden_tzr",
+    "credit": ""
+  },
+  "lincoln": {
+    "name": "Lincoln Park",
+    "address": "8011 Fauntleroy Way SW, Seattle",
+    "description": "Across Lincoln Park’s 135 acres, you can find enough to do to keep you occupied for days. Colman Pool, an outdoor saltwater pool, is a jewel of the park but only open in summers. Same with the kid’s wading pool. But the rest of the park – including a paved waterfront walkway, trails, baseball fields, softball fields, two playgrounds, a zipline, picnic shelter, old growth forest trails and even a bald eagle nest – can be enjoyed all year.",
+    "url": "http://www.seattle.gov/parks/park_detail.asp?ID=460",
+    "image": "golden_tzr",
+    "credit": ""
+  },
+  "lutherburbank": {
+    "name": "Luther Burbank Park",
+    "address": "2040 84th Avenue SE, Seattle",
+    "description": "",
+    "url": "https://www.mercergov.org/page.asp?navid=1138",
+    "image": "golden_tzr",
+    "credit": ""
+  },
+  "madison": {
+    "name": "Madison Park",
+    "address": "4201 E. Madison St., Seattle",
+    "description": "The local lore is that there’s a gay side and a straight side (the gay side is north of the bathrooms) but these days it seems less pronounced. Typically the families and kids gravitate toward the patch of sand near the steps and the lifeguard’s outpost at the far right end. Otherwise it is a very young and varied crowd — a runoff of Capitol Hill’s inked, longhair residents, mingling with yuppies from the nearby tony neighborhood and gay couples. The grassy knoll faces east so you’ll have to time it wisely to catch rays in the later afternoon.",
+    "url": "http://www.seattle.gov/parks/park_detail.asp?ID=369",
+    "image": "golden_tzr",
+    "credit": ""
+  },
+  "matthews": {
+    "name": "Matthews Beach Park",
+    "address": "5100 NE 93rd St., Seattle",
+    "description": "On a sunny day, Matthews Beach Park provides a crystal-blue Lake Washington backdrop against green grass with the gleaming Cascades in the background. (Yes, it’s that picturesque.) The lawn near the shore is a favorite of families, teens and dog owners, but be careful of the stuff left behind by the many geese who also love the place. A lifeguard is on duty sometimes at the small but well-visited swimming beach, which has a swim raft with diving boards. The playground, renovated just a few years ago, is a great spot for kids who climb, and there’s a nearby loop for biking and scootering. Groups from all over Seattle gather at the picnic tables in wooded areas not far from the water for birthdays, graduation celebrations or just because. (It’s not a bad idea to reserve tables ahead through Seattle Parks and Recreation.) In good weather, parking can be a challenge. Accessible from the Burke-Gilman trail. Restrooms and drinking fountain.",
+    "url": "http://www.seattle.gov/parks/park_detail.asp?ID=347",
+    "image": "golden_tzr",
+    "credit": ""
+  },
+  "myrtle": {
+    "name": "Myrtle Edwards Park",
+    "address": "3130 Alaskan Way, Seattle",
+    "description": "",
+    "url": "http://www.seattle.gov/parks/park_detail.asp?ID=311",
+    "image": "golden_tzr",
+    "credit": ""
+  },
+  "seward": {
+    "name": "Seward Park",
+    "address": "5900 Lake Washington Blvd S., Seattle",
+    "description": "Seward Park is south Seattle’s morning, afternoon and evening constitution, a 300-acre jewel designed by the Olmsted Brothers, who helped found the National Park Service. Along with containing one of the last surviving tracts of old-growth forest within the city, Seward Park features a car-free loop, a series of trails, tennis courts, a playground, beaches, picnic areas, an amphitheatre and a clay studio. ",
+    "url": "http://www.seattle.gov/Parks/environment/seward.htm",
+    "image": "golden_tzr",
+    "credit": ""
+  },
+  "magnuson": {
+    "name": "Warren G. Magnuson Park",
+    "address": "7400 Sand Point Way NE, Seattle",
+    "description": "As the city's second-largest park, this former Navy airfield has room for every Seattleite's recreational needs: sports fields, tennis courts, walking paths, a huge off-leash area and waterfront space for swimming and boating. It also features lots of public art, including the famous \"sound garden\" (know anything else from Seattle with that name?).",
+    "url": "http://www.seattle.gov/parks/Magnuson/",
+    "image": "golden_tzr",
+    "credit": ""
+  },
+  "arboretum": {
+    "name": "Washington Park Arboretum",
+    "address": "2300 Arboretum Dr E, Seattle",
+    "description": "",
+    "url": "http://depts.washington.edu/uwbg/gardens/wpa.shtml",
+    "image": "golden_tzr",
+    "credit": ""
   }
 }
