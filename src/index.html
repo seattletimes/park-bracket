@@ -48,10 +48,10 @@
               {{ candidate.details.name }} - {{ candidate.details.title }}
               <div class="details">
                 <p class="chatter">
-                  this space intentionally left blank. this space intentionally left blank. 
+                  {{candidate.details.description}}
                 </p>
                 <div class="result">
-                  Chosen by {{ candidate.votes / match.total * 100 | number:1 }}% of voters
+                  Chosen by {{ candidate.votes / (match.total || 1) * 100 | number:1 }}% of voters
                 </div>
                 <a
                   ng-if="round.current && !match.voted"
