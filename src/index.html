@@ -10,9 +10,7 @@
   </head>
   <body ng-app="brackets">
 
-    <nav>
-      <img class="logo" src="assets/seattletimes.svg">
-    </nav>
+    <%= t.include("partials/_dfHeader.html") %>
 
     <header>
       <div class="header-images"> 
@@ -24,45 +22,52 @@
 
     <main class="bracket" ng-controller="bracket-controller">
     
-      <section class="round" ng-repeat="round in bracket.rounds">
-        <h1>{{round.title}}</h1>
-        <div 
-          ng-repeat="match in round.matchups"
-          ng-class="{ voted: match.voted, expanded: match.expanded }"
-          class="matchup"
-          ng-click="match.expanded = !match.expanded"
-        >
-            <div 
-              ng-repeat="candidate in match.options"
-              ng-class="{
-                won: match.winner == candidate.id,
-                chosen: candidate.id == match.voted
-              }"
-              class="card {{$first ? 'top' : 'bottom'}}"
-            >
-              <div class="icons">
-                <i class="fa fa-star win-marker" ng-if="match.winner == candidate.id"></i>
-                <i class="fa fa-check vote-marker" ng-if="match.voted == candidate.id"></i>
-                <i class="fa fa-spinner fa-spin voting-marker" ng-if="candidate.voting"></i>
-              </div>
-              {{ candidate.details.name }} - {{ candidate.details.title }}
-              <div class="details">
-                <p class="chatter">
-                  {{candidate.details.description}}
-                </p>
-                <div class="result">
-                  Chosen by {{ candidate.votes / (match.total || 1) * 100 | number:1 }}% of voters
+      <nav class="list-pane">
+        <div class="round-selection">
+          <a class="shift-round" ng-click="shiftRound(-1)">&laquo;</a>
+          <h1>{{round.title}}</h1>
+          <a class="shift-round" ng-click="shiftRound(1)">&raquo;</a>
+        </div>
+        <ul class="round">
+          <li
+            ng-repeat="match in round.matchups"
+            ng-class="{ voted: match.voted, expanded: match.expanded }"
+            class="matchup"
+            ng-click="match.expanded = !match.expanded"
+          >
+              <div 
+                ng-repeat="candidate in match.options"
+                ng-class="{
+                  won: match.winner == candidate.id,
+                  chosen: candidate.id == match.voted
+                }"
+                class="card {{$first ? 'top' : 'bottom'}}"
+              >
+                <div class="icons">
+                  <i class="fa fa-star win-marker" ng-if="match.winner == candidate.id"></i>
+                  <i class="fa fa-check vote-marker" ng-if="match.voted == candidate.id"></i>
+                  <i class="fa fa-spinner fa-spin voting-marker" ng-if="candidate.voting"></i>
                 </div>
-                <a
-                  ng-if="round.current && !match.voted"
-                  ng-click="vote(candidate, match)"
-                  class="vote button"
-                >Vote for {{ candidate.details.name }}</a>
+                {{ candidate.details.name }} - {{ candidate.details.title }}
+                <div class="details">
+                  <p class="chatter">
+                    {{candidate.details.description}}
+                  </p>
+                  <div class="result">
+                    Chosen by {{ candidate.votes / (match.total || 1) * 100 | number:1 }}% of voters
+                  </div>
+                  <a
+                    ng-if="round.current && !match.voted"
+                    ng-click="vote(candidate, match)"
+                    class="vote button"
+                  >Vote for {{ candidate.details.name }}</a>
+                </div>
               </div>
-            </div>
-        </div>  
+          </li>
+        </ul>
+      </nav>
 
-      </section>
+      <section class="detail-pane"></section>
 
     </main>
 

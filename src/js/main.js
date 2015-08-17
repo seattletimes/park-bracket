@@ -6,8 +6,6 @@ var memory = require("./memory");
 memory.configure(window.config.page, window.bracket.current);
 var Tabletop = require("tabletop");
 
-
-
 // //disable Tabletop updates during testing due to Google API limits
 // if (false) Tabletop.init({
 //   key: window.config.sheet,
@@ -38,7 +36,7 @@ var app = require("./application");
 var controller = function($scope, $http) {
   $scope.bracket = window.bracket;
 
-  var current = window.bracket.rounds.filter(r => r.current).pop();
+  var current = $scope.round = window.bracket.rounds.filter(r => r.current).pop();
   memory.remember(votes => {
     current.matchups.forEach(function(match) {
       if (match.options.some(o => o.id in votes)) {
@@ -63,40 +61,17 @@ var controller = function($scope, $http) {
       }
     });
 
-  }
+  };
+
+  $scope.shiftRound = function(delta) {
+    var index = $scope.bracket.rounds.indexOf($scope.round);
+    index += delta;
+    if (index < 0) index = 0;
+    if (index > $scope.bracket.rounds.length - 1) index = $scope.bracket.rounds.length - 1;
+    $scope.round = $scope.bracket.rounds[index];
+  };
 
 };
 controller.$inject = ["$scope", "$http"];
 
 app.controller("bracket-controller", controller);
-
-// $(".bracket").on("click", ".vote", function(e) {
-
-//   var $this = $(this);
-//   var $card = $this.closest(".card");
-//   $card.addClass("voting");
-
-//   var vote = this.getAttribute("data-vote");
-  
-//   //mark this vote in our memory structure
-//   var matchID = $this.closest(".matchup").attr("data-index");
-//   var round = window.bracket.currentRound;
-//   var match = round.matchups[matchID];
-//   match.voted = vote;
-
-//   var request = $.ajax({
-//     url: window.config.endpoint,
-//     data: { vote },
-//     dataType: "jsonp"
-//   });
-//   request.done(function(data) {
-//     console.log(data);
-//     renderRound(window.bracket.currentRound);
-
-//     //mark it in the evercookie
-//     memory.flag(vote);
-//   });
-//   request.fail(function() {
-//     $card.removeClass("voting");
-//   });
-// });

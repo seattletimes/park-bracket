@@ -7,22 +7,56 @@
 
 @import "seattletimes";
 @import "flexbox";
-@import "header";
+@import "page";
 
 .bracket {
   .display-flex;
   padding: 8px;
-  justify-content: center;
+
+  .list-pane {
+    .flex(0 0 320px);
+  }
+
+  .focus-pane {
+    .flex(1);
+  }
 }
 
-.round {
-  max-width: 320px;
-  .flex(0 0 320px);
-  margin-right: 20px;
+.list-pane {
+  .display-flex;
+  .flex-direction(column);
+  min-height: 800px;
 
-  h1 {
-    margin: 8px 0;
+  .round-selection {
+    .display-flex;
+    .align-items(center);
+
+    .shift-round {
+      .flex(0);
+      font-size: 24px;
+      background: @df-light-gray;
+      padding: 8px;
+    }
+
+    h1 {
+      .flex(1);
+      text-align: center;
+    }
   }
+
+  .round {
+    list-style-type: none;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    .flex(1);
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, .3);
+  }
+}
+
+.detail-pane {
+  .flex(1);
+  background: pink;
 }
 
 .matchup {
@@ -82,25 +116,5 @@
     background: #f8f8f8;
     color: #333;
     box-shadow: 0 4px 4px rgba(0, 0, 0, .1);
-  }
-}
-
-footer {
-  .display-flex;
-  height: 50px;
-  img {
-    height: 35px;
-    margin: 7px 0 5px 30px;
-    align-items: center;
-  }
-}
-
-nav {
-  .display-flex;
-  height: 50px;
-  img {
-    height: 35px;
-    margin: 7px 0 5px 30px;
-    align-items: center;
   }
 }
