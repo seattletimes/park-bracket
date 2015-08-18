@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <%= t.include("partials/_adHead.html") %>
+    <style>[ng-cloak] { display: none; }</style>
   </head>
   <body ng-app="brackets">
 
@@ -18,7 +19,7 @@
         <div class="image"><img src="assets/myrtle.JPG"></div>
     </header>
 
-    <main class="bracket" ng-controller="bracket-controller">
+    <main class="bracket" ng-controller="bracket-controller" ng-cloak>
     
       <nav class="list-pane">
         <div class="round-selection">
@@ -62,7 +63,10 @@
 
       <section class="detail-pane">
         <div class="match-details">
-          <div class="candidate" ng-repeat="candidate in selected.match.options">
+          <div class="candidate"
+            ng-repeat="candidate in selected.match.options"
+            ng-class="{ focus: candidate == selected.candidate }"
+          >
             <h1>{{candidate.details.name}}</h1>
             <p class="chatter">{{candidate.details.description}}</p>
           </div>
