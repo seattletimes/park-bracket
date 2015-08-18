@@ -8,14 +8,48 @@
     .justify-content(space-between);
     .align-content(stretch);
     border-left: 1px solid @df-middle-gray;
+  }
 
-    .candidate {
-      .flex(0 0 50%);
-      padding: 0 16px;
+  .candidate {
+    .flex(0 0 50%);
+    padding: 0 16px;
+    background: white;
+    position: relative;
+
+    h1 {
+      margin: 0;
+    }
+
+    .close {
+      display: none;
+      position: fixed;
+      top: 16px;
+      right: 24px;
+      z-index: 999;
+      cursor: pointer;
+      color: @parks-green;
       background: white;
+      border-radius: 8px;
+      font-size: 32px;
+    }
+
+    @media @mobile {
+      padding: 16px;
 
       &.focus {
-        outline: 1px solid black;
+        @padding: 16px;
+        @doubled: @padding * 2;
+        position: fixed;
+        overflow: auto;
+        top: @padding;
+        left: @padding;
+        width: calc(~"100% - @{doubled}");
+        height: calc(~"100% - @{doubled}");
+        box-shadow: 4px 4px 16px rgba(0, 0, 0, .2);
+
+        .close {
+          display: block;
+        }
       }
     }
   }

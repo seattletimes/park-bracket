@@ -67,6 +67,9 @@
             ng-repeat="candidate in selected.match.options"
             ng-class="{ focus: candidate == selected.candidate }"
           >
+            <a class="close" ng-click="clearCandidate()">
+              <i class="fa fa-times-circle"></i>
+            </a>
             <h1>{{candidate.details.name}}</h1>
             <p class="chatter">{{candidate.details.description}}</p>
           </div>
