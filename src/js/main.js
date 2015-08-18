@@ -60,8 +60,12 @@ var controller = function($scope, $http) {
         match.voted = vote;
       }
     });
-
   };
+
+  $scope.selectMatch = function(match, candidate) {
+    $scope.selected = { match, candidate };
+    console.log($scope.selected);
+  }
 
   $scope.shiftRound = function(delta) {
     var index = $scope.bracket.rounds.indexOf($scope.round);
