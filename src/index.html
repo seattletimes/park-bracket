@@ -63,8 +63,10 @@
       <section class="detail-pane">
         <div class="match-details">
           <div class="candidate" ng-repeat="candidate in selected.match.options">
-            <img src="assets/{{candidate.details.image}}.JPG">
-            <p class="credit">{{candidate.details.credit}}</p>
+            <div class="image">
+              <img src="assets/{{candidate.details.image}}.JPG">
+              <p class="credit">{{candidate.details.credit}}</p>
+            </div>  
             <h1>{{candidate.details.name}}</h1>
             <p class="address">{{candidate.details.address}}</p>
             <p class="chatter">{{candidate.details.description}}</p>
