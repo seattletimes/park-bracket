@@ -1,12 +1,42 @@
 [
   {
-    "id": "discovery",
-    "title": "discovery",
-    "votes": "3"
+    "id": "matthews",
+    "title": "matthews",
+    "votes": "0"
+  },
+  {
+    "id": "greenlake",
+    "title": "greenlake",
+    "votes": "0"
+  },
+  {
+    "id": "arboretum",
+    "title": "arboretum",
+    "votes": "0"
+  },
+  {
+    "id": "seward",
+    "title": "seward",
+    "votes": "0"
+  },
+  {
+    "id": "lakeunion",
+    "title": "lakeunion",
+    "votes": "0"
+  },
+  {
+    "id": "madison",
+    "title": "madison",
+    "votes": "0"
+  },
+  {
+    "id": "lincoln",
+    "title": "lincoln",
+    "votes": "0"
   },
   {
     "id": "carkeek",
     "title": "carkeek",
-    "votes": ""
+    "votes": "0"
   }
 ]
