@@ -69,11 +69,17 @@ var controller = function($scope, $http) {
   $scope.selectMatch($scope.round.matchups[0], null);
 
   $scope.shiftRound = function(delta) {
+    var before = $scope.round;
     var index = $scope.bracket.rounds.indexOf($scope.round);
     index += delta;
     if (index < 0) index = 0;
     if (index > $scope.bracket.rounds.length - 1) index = $scope.bracket.rounds.length - 1;
     $scope.round = $scope.bracket.rounds[index];
+    if ($scope.round != before) {
+      $scope.selected = {
+        match: $scope.round.matchups[0]
+      }
+    }
   };
 
 };

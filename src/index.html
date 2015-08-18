@@ -41,10 +41,6 @@
                 class="card {{$first ? 'top' : 'bottom'}}"
                 ng-click="selectMatch(match, candidate)"
               >
-                {{ candidate.details.name }} - {{ candidate.details.title }}
-                  <div class="result">
-                    Chosen by {{ candidate.votes / (match.total || 1) * 100 | number:1 }}% of voters
-                  </div>
                   <div class="icons">
                     <i class="fa fa-star win-marker" ng-if="match.winner == candidate.id"></i>
                     <i class="fa fa-check vote-marker" ng-if="match.voted == candidate.id"></i>
@@ -54,6 +50,10 @@
                       ng-click="vote(candidate, match)"
                       class="vote button"
                     ><i class="fa fa-check-square vote-link"></i></a>
+                  </div>
+                {{ candidate.details.name }} - {{ candidate.details.title }}
+                  <div class="result">
+                    Chosen by {{ candidate.votes / (match.total || 1) * 100 | number:1 }}% of voters
                   </div>
               </div>
           </li>
