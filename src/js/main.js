@@ -64,8 +64,9 @@ var controller = function($scope, $http) {
 
   $scope.selectMatch = function(match, candidate) {
     $scope.selected = { match, candidate };
-    console.log($scope.selected);
   }
+
+  $scope.selectMatch($scope.round.matchups[0], null);
 
   $scope.shiftRound = function(delta) {
     var index = $scope.bracket.rounds.indexOf($scope.round);

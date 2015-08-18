@@ -31,7 +31,7 @@
         <ul class="round">
           <li
             ng-repeat="match in round.matchups"
-            ng-class="{ voted: match.voted, selected: $first }"
+            ng-class="{ voted: match.voted, selected: match == selected.match }"
             class="matchup"
           >
               <div 
