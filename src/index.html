@@ -13,20 +13,18 @@
     <%= t.include("partials/_dfHeader.html") %>
 
     <header>
-      <div class="header-images"> 
-        <img src="assets/dogride.JPG">
-        <img src="assets/gardens.JPG">
-        <img src="assets/myrtle.JPG">
-      </div> 
+        <div class="image"><img src="assets/dogride.JPG"></div>
+        <div class="image"><img src="assets/gardens.JPG"></div>
+        <div class="image"><img src="assets/myrtle.JPG"></div>
     </header>
 
     <main class="bracket" ng-controller="bracket-controller">
     
       <nav class="list-pane">
         <div class="round-selection">
-          <a class="shift-round" ng-click="shiftRound(-1)">&laquo;</a>
+          <a class="shift-round" ng-click="shiftRound(-1)"><i class="fa fa-chevron-circle-left"></i></a>
           <h1>{{round.title}}</h1>
-          <a class="shift-round" ng-click="shiftRound(1)">&raquo;</a>
+          <a class="shift-round" ng-click="shiftRound(1)"><i class="fa fa-chevron-circle-right"></i></a>
         </div>
         <ul class="round">
           <li
