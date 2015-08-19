@@ -24,6 +24,10 @@
 
     .image {
         margin-bottom: 30px;
+
+        img {
+          width: 100%; //firefox hack
+        }
         
         .credit {
           float: right; 
@@ -57,8 +61,10 @@
 
     @media @mobile {
       padding: 16px;
+      display: none;
 
       &.focus {
+        display: block;
         @padding: 16px;
         @doubled: @padding * 2;
         position: fixed;

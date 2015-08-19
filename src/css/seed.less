@@ -22,6 +22,12 @@
   overflow: hidden;
   .align-items(stretch);
 
+  @media @mobile {
+    display: block;
+    height: auto;
+    max-height: none;
+  }
+
   .list-pane {
     .flex(0 0 320px);
   }
