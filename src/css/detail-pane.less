@@ -8,15 +8,21 @@
     .justify-content(space-between);
     .align-content(stretch);
     border-left: 1px solid @df-middle-gray;
+  }
 
-    .candidate {
-      .flex(0 0 50%);
-      padding: 0 16px;
-      background: white;
-      font-size: .9em;
-      line-height: 1.3em;
+  .candidate {
+    .flex(0 0 50%);
+    padding: 0 16px;
+    background: white;
+    position: relative;
+    font-size: .9em;
+    line-height: 1.3em;
 
-      .image {
+    h1 {
+      margin: 0;
+    }
+
+    .image {
         margin-bottom: 30px;
         
         .credit {
@@ -28,12 +34,44 @@
         }
       }
 
-      h1 {
-        margin-bottom: 0px;
-      }
+    h1 {
+      margin-bottom: 0px;
+    }
 
-      .address {
-        margin-top: 5px;
+    .address {
+      margin-top: 5px;
+    }  
+
+    .close {
+      display: none;
+      position: fixed;
+      top: 16px;
+      right: 24px;
+      z-index: 999;
+      cursor: pointer;
+      color: @parks-green;
+      background: white;
+      border-radius: 8px;
+      font-size: 32px;
+    }
+
+    @media @mobile {
+      padding: 16px;
+
+      &.focus {
+        @padding: 16px;
+        @doubled: @padding * 2;
+        position: fixed;
+        overflow: auto;
+        top: @padding;
+        left: @padding;
+        width: calc(~"100% - @{doubled}");
+        height: calc(~"100% - @{doubled}");
+        box-shadow: 4px 4px 16px rgba(0, 0, 0, .2);
+
+        .close {
+          display: block;
+        }
       }
     }
   }
