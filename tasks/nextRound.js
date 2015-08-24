@@ -33,13 +33,10 @@ module.exports = function(grunt) {
       var a = sheet[i];
       var b = sheet[i + 1];
 
-      if (a.votes * 1 > b.votes * 1) {
-        a.votes = 0;
-        next.push({ id: a.id, votes: 0 });
-      } else {
-        b.votes = 0;
-        next.push({ id: b.id, votes: 0 });
-      }
+      next.push({ 
+        id: a.votes * 1 > b.votes * 1 ? a.id : b.id,
+        votes: 2
+      });
     }
 
     var keys = Object.keys(next[0]);

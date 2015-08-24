@@ -1,22 +1,75 @@
 @import "values";
 @import "flexbox";
 
-header {
-  padding: 15px;
-  .display-flex;
+header.intro {
 
-  .image {
-    .flex(1 1 33%);
+  .splash {
+    position: relative;
 
-    img {
+    .banner {
       width: 100%;
     }
+
+    .wywh { //wish you were here
+      font-family: Lobster Two, @df-serif;
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      -webkit-transform: rotate(-10deg);
+      transform: rotate(-10deg);
+
+
+      h1, h2 {
+        @main: @parks-green;
+        @outline: white;
+        @distance: 2px;
+
+        margin: 0;
+        color: @main;
+        text-shadow:
+          -@distance -@distance 0 @outline, //top left
+          0 -@distance 0 @outline, // top
+          @distance -@distance 0 @outline, //top right
+          @distance 0 0 @outline, //right
+          @distance @distance 0 @outline, //bottom right
+          0 @distance 0 @outline, //bottom
+          -@distance @distance 0 @outline, //bottom left
+          -@distance 0 0 @outline; //left
+        font-weight: normal;
+        text-align: center;
+        display: block;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+      h2 {
+        font-size: 32px;
+      }
+    }
   }
+
+  .chatter {
+    display: block;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px 0;
+  }
+}
+
+hr {
+  border: 1px solid @parks-green;
+  margin: 20px auto;
+  width: 300px;
+  max-width: 60%;
 }
 
 footer {
   .display-flex;
   height: 50px;
+  margin-top: 50px;
+  box-shadow: 0 -8px 16px rgba(0, 0, 0, .2);
+
   img {
     height: 35px;
     margin: 7px 0 5px 30px;

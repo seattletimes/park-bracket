@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Sigmar+One|Lobster+Two:700:700italic' rel='stylesheet'>
     <%= t.include("partials/_adHead.html") %>
     <style>[ng-cloak] { display: none; }</style>
   </head>
@@ -13,11 +14,19 @@
 
     <%= t.include("partials/_dfHeader.html") %>
 
-    <header>
-        <div class="image"><img src="assets/dogride.JPG"></div>
-        <div class="image"><img src="assets/gardens.JPG"></div>
-        <div class="image"><img src="assets/myrtle.JPG"></div>
+    <header class="intro">
+      <div class="splash">
+        <img src="https://placekitten.com/g/720/200" class="banner">
+        <div class="wywh">
+          <h1>Seattle's Best Parks</h1>
+          <h2>Vote for your favorite!</h2>
+        </div>
+      </div>
+      <p class="chatter">
+        This is the place where we talk about voting for parks. Isn't it great? Just look at that text-shadow. Top notch work here, people. That's a wrap, let's take lunch.
     </header>
+
+    <hr>
 
     <main class="bracket" ng-controller="bracket-controller" ng-cloak>
     
@@ -82,6 +91,8 @@
       </section>
 
     </main>
+
+    <hr>
 
     <footer>
       <img class="logo" src="assets/seattletimes.svg">
