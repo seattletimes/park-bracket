@@ -80,11 +80,12 @@
               <img src="assets/{{candidate.details.image}}.JPG">
               <p class="credit">({{candidate.details.credit}})</p>
             </div>  
-            <h1><a href="{{candidate.details.url}}">{{candidate.details.name}}</a></h1>
-            <p class="address">{{candidate.details.address}}</p>
+            <h1>{{candidate.details.name}}</h1>
+            <p class="address"><a href="{{candidate.details.maps}}">{{candidate.details.address}}</a></p>
+            <p class="address"><a href="{{candidate.details.url}}">More information ></a></p>
             <p class="chatter">{{candidate.details.description}}</p>
             <div class="result">
-              Chosen by <span class="accent">{{ candidate.votes / (match.total || 1) * 100 | number:1 }}%</span> of voters
+              <span class="accent">{{ candidate.votes / (match.total || 1) * 100 | number:1 }}%</span> of the vote
             </div>
           </div>
         </div>
