@@ -3,6 +3,10 @@
   .display-flex;
   .flex-direction(column);
 
+  @media @mobile {
+    display: block;
+  }
+
   .no-matchups {
     .flex(1 1 100%);
     // background: #f8f8f8;
@@ -13,6 +17,11 @@
     text-shadow: 0 0 8px white;
     padding: 60px 30px;
     border-radius: 20px;
+
+    @media @mobile {
+      padding: 20px;
+      display: block;
+    }
   }
 
   .round-selection {
@@ -82,6 +91,10 @@
       border-color: transparent transparent transparent @color;
       border-width: 10px 0 10px 10px;
       border-style: solid;
+
+      @media @mobile {
+        display: none;
+      }
     }
   }
 }

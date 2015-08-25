@@ -62,7 +62,7 @@
                       <i class="fa fa-spinner fa-spin voting-marker" ng-if="candidate.voting"></i>
                       <a
                         ng-if="round.current && !match.voted && !candidate.voting"
-                        ng-click="vote(candidate, match)"
+                        ng-click="vote(candidate, match); $event.stopPropagation()"
                         class="vote button"
                       ><i class="fa fa-check-square vote-link"></i></a>
                     </div>
@@ -96,7 +96,7 @@
             <p class="result" ng-if="selected.match.voted || !round.current">
               {{ candidate.votes }} VOTES
             </p>
-            <div class="vote-for-this" ng-if="!selected.match.voted && round.current">
+            <div class="vote-for-this" ng-if="!selected.match.voted && round.current && !selected.match.voting">
               <a ng-click="vote(candidate, selected.match)"><i class="fa fa-check-square"></i> Vote</a>
             </div>
           </div>
