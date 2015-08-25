@@ -12,6 +12,8 @@
   </head>
   <body ng-app="brackets">
 
+    <%= t.include("partials/_ad.html", { type: "banner" }) %>
+
     <%= t.include("partials/_dfHeader.html") %>
 
     <header class="intro">
@@ -63,33 +65,32 @@
                     </div>
                   {{ candidate.details.name }}
                 </div>
-            </li>
-          </ul>
-        </nav>
+          </li>
+        </ul>
+      </nav>
 
-        <section class="detail-pane">
-          <div class="match-details">
-            <div class="candidate"
-              ng-repeat="candidate in selected.match.options"
-              ng-class="{ focus: candidate == selected.candidate }"
-            >
-              <a class="close" ng-click="clearCandidate()">
-                <i class="fa fa-times-circle"></i>
-              </a>
-              <div class="image">
-                <img src="assets/{{candidate.details.image}}.JPG">
-                <p class="credit">({{candidate.details.credit}})</p>
-              </div>  
-              <h1>{{candidate.details.name}}</h1>
-              <p class="address"><a href="{{candidate.details.maps}}">{{candidate.details.address}}</a></p>
-              <p class="address"><a href="{{candidate.details.url}}">More information ></a></p>
-              <p class="chatter">{{candidate.details.description}}</p>
-              <div class="result">
+      <section class="detail-pane">
+        <div class="match-details">
+          <div class="candidate"
+            ng-repeat="candidate in selected.match.options"
+            ng-class="{ focus: candidate == selected.candidate }"
+          >
+            <a class="close" ng-click="clearCandidate()">
+              <i class="fa fa-times-circle"></i>
+            </a>
+            <div class="image">
+              <img src="assets/{{candidate.details.image}}.JPG">
+              <p class="credit">({{candidate.details.credit}})</p>
+            </div>  
+            <h1>{{candidate.details.name}}</h1>
+            <p class="address"><a href="{{candidate.details.maps}}">{{candidate.details.address}}</a></p>
+            <p class="address"><a href="{{candidate.details.url}}">More information ></a></p>
+            <p class="chatter">{{candidate.details.description}}</p>
+            <div class="result" ng-if="selected.match.voted">
               <span class="accent">{{ candidate.votes }}</span> votes
-              </div>
-              <div class="vote-for-this" ng-if="!selected.match.voted">
-                <a ng-click="vote(candidate, selected.match)"><i class="fa fa-check-square"></i> Vote</a>
-              </div>
+            </div>
+            <div class="vote-for-this" ng-if="!selected.match.voted">
+              <a ng-click="vote(candidate, selected.match)"><i class="fa fa-check-square"></i> Vote</a>
             </div>
           </div>
         </section>
@@ -98,6 +99,11 @@
       <%= t.include("partials/_livefyre.html") %>
      </div> 
     <hr>
+    
+    <ul class="credits">
+      <li> Development: Paige Collins, Thomas Wilburn
+      <li> Design: Frank Mina
+    </ul>
 
     <footer>
       <img class="logo" src="assets/seattletimes.svg">
