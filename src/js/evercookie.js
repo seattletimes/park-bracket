@@ -72,7 +72,7 @@ var localS = function(key, value) {
     return Promise.resolve(result);
   }
 };
-localS.clear = window.localStorage.clear.bind(window.localStorage);
+localS.clear = () => window.localStorage.clear();
 
 var methods = [tab, cookie, idb, localS];
 
