@@ -94,7 +94,7 @@
             <p class="address"><a href="{{candidate.details.url}}">More information ></a></p>
             <p class="chatter">{{candidate.details.description}}</p>
             <p class="result" ng-if="selected.match.voted || !round.current">
-              {{ candidate.votes }} votes
+              {{ candidate.votes }} VOTES
             </p>
             <div class="vote-for-this" ng-if="!selected.match.voted && round.current">
               <a ng-click="vote(candidate, selected.match)"><i class="fa fa-check-square"></i> Vote</a>
