@@ -1,22 +1,22 @@
 [
   {
     "title": "Round 1",
-    "sheet": "round1"
+    "sheet": "round1",
+    "description": "16 parks compete!"
   },
   {
     "title": "Round 2",
-    "sheet": "round2"
+    "sheet": "round2",
+    "description": "The top 8 parks compete starting XXXX."
   },
   {
-    "title": "Quarterfinals",
-    "sheet": "round3"
+    "title": "Round 3",
+    "sheet": "round3",
+    "description": "The top 4 parks square off, starting XXXX."
   },
   {
-    "title": "Semifinals",
-    "sheet": "round4"
-  },
-  {
-    "title": "Finals",
-    "sheet": "final"
+    "title": "Round 4",
+    "sheet": "round4",
+    "description": "It's the final two, with voting open on XXXX."
   }
 ]
