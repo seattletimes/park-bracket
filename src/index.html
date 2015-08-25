@@ -23,7 +23,7 @@
         </div>
       </div>
       <p class="chatter">
-        This is the place where we talk about voting for parks. Isn't it great? Just look at that text-shadow. Top notch work here, people. That's a wrap, let's take lunch.
+        We've spent this gorgeous Seattle summer frolicking and relaxing in our gorgeous parks. Now it's time to crown your favorite. Earlier this season, readers helped us seed the competition. The criteria: Popular parks in and around Seattle with access to the water (lake or otherwise). Vote for your favorite now!
     </header>
 
     <hr>
@@ -62,9 +62,6 @@
                     ><i class="fa fa-check-square vote-link"></i></a>
                   </div>
                 {{ candidate.details.name }}
-                  <div class="result">
-                    Chosen by {{ candidate.votes / (match.total || 1) * 100 | number:1 }}% of voters
-                  </div>
               </div>
           </li>
         </ul>
@@ -81,11 +78,14 @@
             </a>
             <div class="image">
               <img src="assets/{{candidate.details.image}}.JPG">
-              <p class="credit">{{candidate.details.credit}}</p>
+              <p class="credit">({{candidate.details.credit}})</p>
             </div>  
-            <h1>{{candidate.details.name}}</h1>
+            <h1><a href="{{candidate.details.url}}">{{candidate.details.name}}</a></h1>
             <p class="address">{{candidate.details.address}}</p>
             <p class="chatter">{{candidate.details.description}}</p>
+            <div class="result">
+              Chosen by <span class="accent">{{ candidate.votes / (match.total || 1) * 100 | number:1 }}%</span> of voters
+            </div>
           </div>
         </div>
       </section>
