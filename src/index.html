@@ -52,8 +52,8 @@
                 ng-click="selectMatch(match, candidate)"
               >
                   <div class="icons">
-                    <i class="fa fa-star win-marker" ng-if="match.winner == candidate.id"></i>
-                    <i class="fa fa-check vote-marker" ng-if="match.voted == candidate.id"></i>
+                    <i class="fa fa-trophy win-marker" title="Winner" ng-if="match.winner == candidate.id"></i>
+                    <i class="fa fa-check-circle vote-marker" ng-if="match.voted == candidate.id"></i>
                     <i class="fa fa-spinner fa-spin voting-marker" ng-if="candidate.voting"></i>
                     <a
                       ng-if="round.current && !match.voted && !candidate.voting"
@@ -84,7 +84,10 @@
             <p class="address">{{candidate.details.address}}</p>
             <p class="chatter">{{candidate.details.description}}</p>
             <div class="result">
-              Chosen by <span class="accent">{{ candidate.votes / (match.total || 1) * 100 | number:1 }}%</span> of voters
+              <span class="accent">{{ candidate.votes }}</span> votes
+            </div>
+            <div class="vote-for-this" ng-if="!selected.match.voted">
+              <a ng-click="vote(candidate, selected.match)"><i class="fa fa-check-square"></i> Vote</a>
             </div>
           </div>
         </div>
