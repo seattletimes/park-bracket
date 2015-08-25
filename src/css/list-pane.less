@@ -45,11 +45,14 @@
 }
 
 .matchup {
-  margin-bottom: 8px;
   position: relative;
   padding: 8px;
-  border-bottom: 1px solid @df-middle-gray;
+  border-bottom: 1px solid @df-light-gray;
   cursor: pointer;
+
+  &:last-child {
+    border-bottom: none;
+  }
 
   &.selected {
     background: @parks-green;
@@ -74,8 +77,11 @@
   position: relative;
   padding: 8px;
   background: #EEE;
-  margin-bottom: 8px;
   font-family: @df-sans;
+
+  &:first-child {
+    margin-bottom: 8px;
+  }
 
   .voted & {
     color: #333;
