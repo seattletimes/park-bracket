@@ -45,14 +45,18 @@
 }
 
 .matchup {
-  margin-bottom: 8px;
   position: relative;
   padding: 8px;
-  border-bottom: 1px solid @df-middle-gray;
+  border-bottom: 1px solid @df-light-gray;
   cursor: pointer;
 
+  &:last-child {
+    border-bottom: none;
+  }
+
   &.selected {
-    background: @parks-green;
+    @color: darken(@parks-green, 10%);
+    background: @color;
     border-color: transparent;
 
     &::after {
@@ -63,7 +67,7 @@
       transform: translateY(-50%);
       height: 0;
       width: 0;
-      border-color: transparent transparent transparent @parks-green;
+      border-color: transparent transparent transparent @color;
       border-width: 10px 0 10px 10px;
       border-style: solid;
     }
@@ -74,8 +78,11 @@
   position: relative;
   padding: 8px;
   background: #EEE;
-  margin-bottom: 8px;
   font-family: @df-sans;
+
+  &:first-child {
+    margin-bottom: 8px;
+  }
 
   .voted & {
     color: #333;
@@ -86,7 +93,10 @@
   }
 
   .icons {
-    font-size: 30px;
+    font-size: 24px;
+    // position: absolute;
+    // top: 0px;
+    // right: 8px;
     float: right;
 
     .vote {
@@ -103,6 +113,7 @@
 
     .win-marker {
       color: white;
+      font-size: 22px;
     }
   }
 }

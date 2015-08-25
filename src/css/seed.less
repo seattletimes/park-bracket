@@ -11,6 +11,14 @@
 
 @parks-green: #BD7;
 
+a {
+  color: @parks-green;
+  
+  &:hover {
+    color: darken(@parks-green, 10%);
+  }
+}
+
 .bracket {
   font-family: @df-sans;
   .display-flex;
