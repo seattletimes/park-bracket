@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 
       next.push({ 
         id: a.votes * 1 > b.votes * 1 ? a.id : b.id,
-        votes: 2
+        votes: 0
       });
     }
 

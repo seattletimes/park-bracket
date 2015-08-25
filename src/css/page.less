@@ -19,6 +19,7 @@ header.intro {
 
     .banner {
       width: 100%;
+      display: block;
     }
 
     .wywh { //wish you were here
@@ -29,6 +30,14 @@ header.intro {
       -webkit-transform: rotate(-10deg);
       transform: rotate(-10deg);
 
+      @media @mobile {
+        position: static;
+        display: block;
+        -webkit-transform: none;
+        transform: none;
+        padding: 20px 0;
+        background: #345;
+      }
 
       h1, h2 {
         @main: @parks-green;
@@ -49,22 +58,27 @@ header.intro {
         font-weight: normal;
         text-align: center;
         display: block;
+
+        @media @mobile {
+          text-shadow: 1px 1px 0px white;
+        }
       }
 
       h1 {
-        font-size: 48px;
+        font-size: 72px;
+        @media @mobile { font-size: 40px }
       }
       h2 {
-        font-size: 32px;
+        font-size: 48px;
+        @media @mobile { font-size: 24px }
       }
     }
   }
 
   .chatter {
-    display: block;
     max-width: 700px;
     margin: auto;
-    padding: 20px 0;
+    display: block;
   }
 }
 
@@ -76,6 +90,7 @@ header.intro {
 .comments {
   max-width: 800px;
   margin: auto;
+  z-index: 0;
 }
 
 hr {
