@@ -27,75 +27,76 @@
     </header>
 
     <hr>
+    <div class="page-container">
+      <main class="bracket" ng-controller="bracket-controller" ng-cloak>
+      
+        <nav class="list-pane">
+          <div class="round-selection">
+            <a class="shift-round" ng-click="shiftRound(-1)"><i class="fa fa-chevron-circle-left"></i></a>
+            <h1>{{round.title}}</h1>
+            <a class="shift-round" ng-click="shiftRound(1)"><i class="fa fa-chevron-circle-right"></i></a>
+          </div>
+          <ul class="round">
+            <li
+              ng-repeat="match in round.matchups"
+              ng-class="{ voted: match.voted, selected: match == selected.match }"
+              class="matchup"
+            >
+                <div 
+                  ng-repeat="candidate in match.options"
+                  ng-class="{
+                    won: match.winner == candidate.id,
+                    chosen: candidate.id == match.voted
+                  }"
+                  class="card {{$first ? 'top' : 'bottom'}}"
+                  ng-click="selectMatch(match, candidate)"
+                >
+                    <div class="icons">
+                      <i class="fa fa-trophy win-marker" title="Winner" ng-if="match.winner == candidate.id"></i>
+                      <i class="fa fa-check-circle vote-marker" ng-if="match.voted == candidate.id"></i>
+                      <i class="fa fa-spinner fa-spin voting-marker" ng-if="candidate.voting"></i>
+                      <a
+                        ng-if="round.current && !match.voted && !candidate.voting"
+                        ng-click="vote(candidate, match)"
+                        class="vote button"
+                      ><i class="fa fa-check-square vote-link"></i></a>
+                    </div>
+                  {{ candidate.details.name }}
+                </div>
+            </li>
+          </ul>
+        </nav>
 
-    <main class="bracket" ng-controller="bracket-controller" ng-cloak>
-    
-      <nav class="list-pane">
-        <div class="round-selection">
-          <a class="shift-round" ng-click="shiftRound(-1)"><i class="fa fa-chevron-circle-left"></i></a>
-          <h1>{{round.title}}</h1>
-          <a class="shift-round" ng-click="shiftRound(1)"><i class="fa fa-chevron-circle-right"></i></a>
-        </div>
-        <ul class="round">
-          <li
-            ng-repeat="match in round.matchups"
-            ng-class="{ voted: match.voted, selected: match == selected.match }"
-            class="matchup"
-          >
-              <div 
-                ng-repeat="candidate in match.options"
-                ng-class="{
-                  won: match.winner == candidate.id,
-                  chosen: candidate.id == match.voted
-                }"
-                class="card {{$first ? 'top' : 'bottom'}}"
-                ng-click="selectMatch(match, candidate)"
-              >
-                  <div class="icons">
-                    <i class="fa fa-trophy win-marker" title="Winner" ng-if="match.winner == candidate.id"></i>
-                    <i class="fa fa-check-circle vote-marker" ng-if="match.voted == candidate.id"></i>
-                    <i class="fa fa-spinner fa-spin voting-marker" ng-if="candidate.voting"></i>
-                    <a
-                      ng-if="round.current && !match.voted && !candidate.voting"
-                      ng-click="vote(candidate, match)"
-                      class="vote button"
-                    ><i class="fa fa-check-square vote-link"></i></a>
-                  </div>
-                {{ candidate.details.name }}
+        <section class="detail-pane">
+          <div class="match-details">
+            <div class="candidate"
+              ng-repeat="candidate in selected.match.options"
+              ng-class="{ focus: candidate == selected.candidate }"
+            >
+              <a class="close" ng-click="clearCandidate()">
+                <i class="fa fa-times-circle"></i>
+              </a>
+              <div class="image">
+                <img src="assets/{{candidate.details.image}}.JPG">
+                <p class="credit">({{candidate.details.credit}})</p>
+              </div>  
+              <h1>{{candidate.details.name}}</h1>
+              <p class="address"><a href="{{candidate.details.maps}}">{{candidate.details.address}}</a></p>
+              <p class="address"><a href="{{candidate.details.url}}">More information ></a></p>
+              <p class="chatter">{{candidate.details.description}}</p>
+              <div class="result">
+              <span class="accent">{{ candidate.votes }}</span> votes
               </div>
-          </li>
-        </ul>
-      </nav>
-
-      <section class="detail-pane">
-        <div class="match-details">
-          <div class="candidate"
-            ng-repeat="candidate in selected.match.options"
-            ng-class="{ focus: candidate == selected.candidate }"
-          >
-            <a class="close" ng-click="clearCandidate()">
-              <i class="fa fa-times-circle"></i>
-            </a>
-            <div class="image">
-              <img src="assets/{{candidate.details.image}}.JPG">
-              <p class="credit">({{candidate.details.credit}})</p>
-            </div>  
-            <h1>{{candidate.details.name}}</h1>
-            <p class="address"><a href="{{candidate.details.maps}}">{{candidate.details.address}}</a></p>
-            <p class="address"><a href="{{candidate.details.url}}">More information ></a></p>
-            <p class="chatter">{{candidate.details.description}}</p>
-            <div class="result">
-            <span class="accent">{{ candidate.votes }}</span> votes
-            </div>
-            <div class="vote-for-this" ng-if="!selected.match.voted">
-              <a ng-click="vote(candidate, selected.match)"><i class="fa fa-check-square"></i> Vote</a>
+              <div class="vote-for-this" ng-if="!selected.match.voted">
+                <a ng-click="vote(candidate, selected.match)"><i class="fa fa-check-square"></i> Vote</a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-    </main>
-
+      </main>
+      <%= t.include("partials/_livefyre.html") %>
+     </div> 
     <hr>
 
     <footer>

@@ -18,16 +18,19 @@ a {
     color: darken(@parks-green, 10%);
   }
 }
+.page-container{
+  max-width: 1500px;
+  margin: auto;
+}
 
 .bracket {
   font-family: @df-sans;
   .display-flex;
   padding: 8px;
-  max-width: 1500px;
-  margin: auto;
   height: 99999px; //stupid Firefox hack
   max-height: 700px;
   overflow: hidden;
+  margin-bottom: 30px;
   .align-items(stretch);
 
   @media @mobile {
