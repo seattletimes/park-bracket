@@ -23,6 +23,9 @@ module.exports = function(grunt) {
 
     var processRound = function(sheet, isPast) {
       var round = { matchups: [] };
+      //future rounds
+      if (!sheet) return round;
+
       for (var i = 0; i < sheet.length; i += 2) {
         var a = sheet[i];
         var b = sheet[i + 1];
@@ -75,9 +78,10 @@ module.exports = function(grunt) {
       var isCurrent = order.sheet == roundID;
       var data = processRound(sheet, !isCurrent);
       data.title = order.title;
+      data.description = order.description;
       data.id = order.sheet;
       bracket.rounds.push(data);
-      if (data.current) break;
+      // if (data.current) break;
     }
 
     grunt.data.bracket = bracket;

@@ -38,7 +38,10 @@
             <h1>{{round.title}}</h1>
             <a class="shift-round" ng-click="shiftRound(1)"><i class="fa fa-chevron-circle-right"></i></a>
           </div>
-          <ul class="round">
+          <div class="no-matchups pinstripe" ng-if="!round.matchups.length">
+            {{round.description}}
+          </div>
+          <ul class="round" ng-if="round.matchups.length">
             <li
               ng-repeat="match in round.matchups"
               ng-class="{ voted: match.voted, selected: match == selected.match }"
@@ -65,12 +68,16 @@
                     </div>
                   {{ candidate.details.name }}
                 </div>
+
           </li>
         </ul>
       </nav>
 
       <section class="detail-pane">
-        <div class="match-details">
+        <div class="no-match pinstripe" ng-if="!selected.match">
+          No match available &mdash; select a different round to view details.
+        </div>
+        <div class="match-details" ng-if="selected.match">
           <div class="candidate"
             ng-repeat="candidate in selected.match.options"
             ng-class="{ focus: candidate == selected.candidate }"

@@ -3,7 +3,18 @@
 .detail-pane {
   .display-flex;
   .flex(1);
-  padding: 8px;
+  padding: 0 8px;
+
+  .no-match {
+    .flex(1);
+    border-radius: 20px;
+    padding: 100px;
+    color: @df-dark-gray;
+    font-family: @df-sans;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 0 8px white;
+  }
 
   .match-details {
     .display-flex;
