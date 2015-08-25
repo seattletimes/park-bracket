@@ -12,6 +12,8 @@
   </head>
   <body ng-app="brackets">
 
+    <%= t.include("partials/_ad.html", { type: "banner" }) %>
+
     <%= t.include("partials/_dfHeader.html") %>
 
     <header class="intro">
@@ -84,8 +86,8 @@
             <p class="address"><a href="{{candidate.details.maps}}">{{candidate.details.address}}</a></p>
             <p class="address"><a href="{{candidate.details.url}}">More information ></a></p>
             <p class="chatter">{{candidate.details.description}}</p>
-            <div class="result">
-            <span class="accent">{{ candidate.votes }}</span> votes
+            <div class="result" ng-if="selected.match.voted">
+              <span class="accent">{{ candidate.votes }}</span> votes
             </div>
             <div class="vote-for-this" ng-if="!selected.match.voted">
               <a ng-click="vote(candidate, selected.match)"><i class="fa fa-check-square"></i> Vote</a>
