@@ -6,31 +6,6 @@ var memory = require("./memory");
 memory.configure(window.config.page, window.bracket.current);
 var Tabletop = require("tabletop");
 
-// //disable Tabletop updates during testing due to Google API limits
-// if (false) Tabletop.init({
-//   key: window.config.sheet,
-//   simpleSheet: true,
-//   wanted: [window.bracket.current],
-//   callback: function(rows) {
-//     var round = window.bracket.currentRound;
-//     if (!round) return;
-//     var voting = {};
-//     rows.forEach(function(row) {
-//       voting[row.id] = row.votes * 1;
-//     });
-//     round.matchups.forEach(function(match) {
-//       //first pass, recount the votes
-//       match.options.forEach(function(option) {
-//         if (voting[option.id]) {
-//           option.votes = voting[option.id];
-//         }
-//       });
-//       match.total = match.options[0].votes + match.options[1].votes;
-//     });
-//     renderRound(round);
-//   }
-// });
-
 var app = require("./application");
 
 var controller = function($scope, $http) {
@@ -44,6 +19,29 @@ var controller = function($scope, $http) {
       }
     });
     $scope.$apply();
+  });
+
+  // disable Tabletop updates during testing due to Google API limits
+  Tabletop.init({
+    key: window.config.sheet,
+    simpleSheet: true,
+    wanted: [window.bracket.current],
+    callback: function(rows) {
+      var voting = {};
+      rows.forEach(function(row) {
+        voting[row.id] = row.votes * 1;
+      });
+      current.matchups.forEach(function(match) {
+        //first pass, recount the votes
+        match.options.forEach(function(option) {
+          if (voting[option.id]) {
+            option.votes = voting[option.id];
+          }
+        });
+        match.total = match.options[0].votes + match.options[1].votes;
+      });
+      $scope.$apply();
+    }
   });
 
   $scope.vote = function(candidate, match) {
