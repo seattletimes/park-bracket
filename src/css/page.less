@@ -18,60 +18,70 @@ header.intro {
     position: relative;
 
     .banner {
-      width: 100%;
+      width: 70%;
       display: block;
-    }
+      margin: auto;
 
-    .wywh { //wish you were here
-      font-family: Lobster Two, @df-serif;
-      position: absolute;
-      top: 40px;
-      left: 40px;
-      -webkit-transform: rotate(-10deg);
-      transform: rotate(-10deg);
+      @media @tablet {
+        width: 100%;
+      }
+    }
+  }
+
+  .wywh { //wish you were here
+    font-family: Lobster Two, @df-serif;
+    // position: absolute;
+    // top: 40px;
+    // left: 40px;
+    // -webkit-transform: rotate(-10deg);
+    // transform: rotate(-10deg);
+
+    // @media @mobile {
+    //   position: static;
+    //   display: block;
+    //   -webkit-transform: none;
+    //   transform: none;
+    //   padding: 20px 0;
+    //   background: #345;
+    // }
+
+    h1 {
+      @main: @parks-green;
+      @outline: white;
+      @distance: 2px;
+
+      margin: 0;
+      color: @main;
+      // text-shadow:
+      //   -@distance -@distance 0 @outline, //top left
+      //   0 -@distance 0 @outline, // top
+      //   @distance -@distance 0 @outline, //top right
+      //   @distance 0 0 @outline, //right
+      //   @distance @distance 0 @outline, //bottom right
+      //   0 @distance 0 @outline, //bottom
+      //   -@distance @distance 0 @outline, //bottom left
+      //   -@distance 0 0 @outline; //left
+      font-weight: normal;
+      text-align: center;
+      display: block;
 
       @media @mobile {
-        position: static;
-        display: block;
-        -webkit-transform: none;
-        transform: none;
-        padding: 20px 0;
-        background: #345;
+        text-shadow: 1px 1px 0px white;
       }
+    }
 
-      h1, h2 {
-        @main: @parks-green;
-        @outline: white;
-        @distance: 2px;
-
-        margin: 0;
-        color: @main;
-        text-shadow:
-          -@distance -@distance 0 @outline, //top left
-          0 -@distance 0 @outline, // top
-          @distance -@distance 0 @outline, //top right
-          @distance 0 0 @outline, //right
-          @distance @distance 0 @outline, //bottom right
-          0 @distance 0 @outline, //bottom
-          -@distance @distance 0 @outline, //bottom left
-          -@distance 0 0 @outline; //left
-        font-weight: normal;
-        text-align: center;
-        display: block;
-
-        @media @mobile {
-          text-shadow: 1px 1px 0px white;
-        }
-      }
-
-      h1 {
-        font-size: 72px;
-        @media @mobile { font-size: 40px }
-      }
-      h2 {
-        font-size: 48px;
-        @media @mobile { font-size: 24px }
-      }
+    h1 {
+      padding-top: 20px;
+      font-size: 72px;
+      @media @mobile { font-size: 40px }
+    }
+    h2 {
+      font-family: @df-sans;
+      text-align: center;
+      margin: 0;
+      margin-top: 10px;
+      font-size: 24px;
+      @media @mobile { font-size: 24px }
     }
   }
 
