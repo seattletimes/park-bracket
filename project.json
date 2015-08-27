@@ -6,7 +6,7 @@
     },
     "live": {
       "bucket": "projects.seattletimes.com",
-      "path": "2015/parks-bracket"
+      "path": "2015/best-seattle-parks-bracket"
     }
   },
   "title": "Seattle's best parks: Vote for your favorite",
@@ -16,7 +16,7 @@
   "tags": ["lifestyle"],
   "sheets": ["1S5hBvOBl_tDNTlr3wE3sFxz2jkg2RCkRR1ZjYTdnCbk"],
   "endpoint": "https://script.google.com/macros/s/AKfycbxc9-lpS4InceOver_BHPjISvt6wM6hTJpArG1wGC0CQWE9lTs/exec",
-  "image": "http://seattletimes.com/art/ui/fb_icon_large.jpg",
-  "production": false,
+  "image": "http://projects.seattletimes.com/2015/best-seattle-parks-bracket/assets/park-banner.jpg",
+  "production": true,
   "embedded": false
 }

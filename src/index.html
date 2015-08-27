@@ -24,8 +24,9 @@
           <h1>Seattle's Best Parks</h1>
           <h2>Vote for your favorite!</h2>
         </div>
-      <p class="chatter">
-        We've spent this beautiful Seattle summer frolicking and relaxing in our gorgeous parks. Now it's time to crown your favorite. Earlier this season, readers helped us select and seed the competition. The criteria: Popular parks in and around Seattle with access to the water (lake or otherwise). Vote for your favorite now!
+      <p class="chatter" >
+        We've spent this beautiful Seattle summer frolicking and relaxing in our gorgeous parks. Now it's time to crown your favorite. 
+        <p class="chatter" style="padding-top: 0px;">Earlier this season, readers helped us select and seed the competition. The criteria: Popular parks in and around Seattle with access to the water (lake or otherwise). Vote for your favorite now!
     </header>
 
     <hr>
@@ -90,8 +91,8 @@
               <p class="credit">({{candidate.details.credit}})</p>
             </div>  
             <h1>{{candidate.details.name}}</h1>
-            <p class="address"><a href="{{candidate.details.maps}}">{{candidate.details.address}}</a></p>
-            <p class="address"><a href="{{candidate.details.url}}">More information ></a></p>
+            <p class="address"><a href="{{candidate.details.maps}}" target="_blank">{{candidate.details.address}}</a></p>
+            <p class="address"><a href="{{candidate.details.url}}" target="_blank">More information ></a></p>
             <p class="chatter">{{candidate.details.description}}</p>
             <p class="result" ng-if="selected.match.voted || !round.current">
               {{ candidate.votes }} VOTES
