@@ -20,6 +20,7 @@ module.exports = function(grunt) {
 
     //load up candidate metadata
     var candidates = getSheet("candidates");
+    var bracketClosed = grunt.option("closed");
 
     var processRound = function(sheet, isPast) {
       var round = { matchups: [] };
@@ -39,7 +40,7 @@ module.exports = function(grunt) {
         matchup.options.forEach(function(option) {
           option.details = candidates[option.id];
         });
-        if (isPast) {
+        if (isPast || bracketClosed) {
           matchup.winner = a.votes > b.votes ? a.id : b.id
         }
         round.matchups.push(matchup);
@@ -84,6 +85,7 @@ module.exports = function(grunt) {
       // if (data.current) break;
     }
 
+    bracket.closed = bracketClosed;
     grunt.data.bracket = bracket;
 
   });
